@@ -23,6 +23,14 @@ namespace ConfiguringApps
             return new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .ConfigureAppConfiguration((hostingContext, config) => {
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    config.AddEnvironmentVariables();
+                    if (args != null)
+                    {
+                        config.AddCommandLine(args);
+                    }
+                })
                 .UseStartup<Startup>()
                 .Build();
         }

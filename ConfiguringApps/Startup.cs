@@ -27,6 +27,7 @@ namespace ConfiguringApps
             {
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
+                app.UseBrowserLink();
             }
             else
             {

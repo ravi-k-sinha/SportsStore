@@ -37,6 +37,10 @@ namespace ConfiguringApps
                     logging.AddConsole();
                     logging.AddDebug();
                 })
+                .UseIISIntegration()
+                .UseDefaultServiceProvider((context, options) => {
+                    options.ValidateScopes = context.HostingEnvironment.IsDevelopment();
+                })
                 .UseStartup<Startup>()
                 .Build();
         }

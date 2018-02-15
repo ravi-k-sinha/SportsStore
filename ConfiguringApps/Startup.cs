@@ -16,8 +16,21 @@ namespace ConfiguringApps
             Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddSingleton<UptimeService>();
+            services.AddMvc();
+        }
+
+        public void ConfigureDevelopment(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseStatusCodePages();
+            app.UseBrowserLink();
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<UptimeService>();
@@ -26,7 +39,6 @@ namespace ConfiguringApps
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if ((Configuration.GetSection("ShortCircuitMiddleware")?.GetValue<bool>("EnableBrowserShortCircuit")).Value)
@@ -34,17 +46,8 @@ namespace ConfiguringApps
                 app.UseMiddleware<BrowserTypeMiddleware>();
                 app.UseMiddleware<ShortCircuitMiddleware>();
             }
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseStatusCodePages();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            
+            app.UseExceptionHandler("/Home/Error");
 
             app.UseStaticFiles();
 

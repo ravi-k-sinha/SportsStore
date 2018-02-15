@@ -24,6 +24,11 @@ namespace UrlsAndRoutes
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "",
+                    template: "X{controller}/{action}"
+                );
+
+                routes.MapRoute(
                     name: "default", 
                     template: "{controller=Home}/{action=Index}"
                 );

@@ -43,7 +43,7 @@ namespace ConfiguringApps
                 .UseDefaultServiceProvider((context, options) => {
                     options.ValidateScopes = context.HostingEnvironment.IsDevelopment();
                 })
-                .UseStartup<Startup>()
+                .UseStartup(nameof(ConfiguringApps))
                 .Build();
         }
             

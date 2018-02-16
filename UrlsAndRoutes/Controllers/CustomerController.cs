@@ -11,10 +11,17 @@ namespace UrlsAndRoutes.Controllers
             Action = nameof(Index)
         });
 
-        public ViewResult List() => View("Result", new Result
-        {
-            Controller = nameof(CustomerController),
-            Action = nameof(List)
-        });
+        public ViewResult List(string id) {
+
+            Result r = new Result
+            {
+                Controller = nameof(CustomerController),
+                Action = nameof(List)
+            };
+
+            r.Data["Id"] = id ?? "<no value>";
+            r.Data["catchall"] = RouteData.Values["catchall"];
+            return View("Result", r);
+        }
     }
 }

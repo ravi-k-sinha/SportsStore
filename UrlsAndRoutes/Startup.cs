@@ -52,9 +52,7 @@ namespace UrlsAndRoutes
 
                 routes.MapRoute(
                     name: "MyRoute",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index"},
-                    constraints: new { id = new IntRouteConstraint()}
+                    template: "{controller:regex(^H.*)=Home}/{action}/{id?}"
                 );
             });
         }

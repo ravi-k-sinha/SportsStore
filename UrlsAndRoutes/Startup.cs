@@ -52,7 +52,7 @@ namespace UrlsAndRoutes
 
                 routes.MapRoute(
                     name: "MyRoute",
-                    template: "{controller=Home}/{action=Index}/{id:range(10, 20)?}"
+                    template: "{controller=Home}/{action=Index}/{id:alpha:minLength(6)?}"
                 );
             });
         }

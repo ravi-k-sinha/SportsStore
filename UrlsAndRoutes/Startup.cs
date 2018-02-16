@@ -52,7 +52,7 @@ namespace UrlsAndRoutes
 
                 routes.MapRoute(
                     name: "MyRoute",
-                    template: "{controller:regex(^H.*)=Home}/{action}/{id?}"
+                    template: "{controller:regex(^H.*)=Home}/{action:regex(^Index$|^About$)=Index}/{id?}"
                 );
             });
         }

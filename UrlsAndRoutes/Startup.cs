@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
+using UrlsAndRoutes.Infrastructure;
 
 namespace UrlsAndRoutes
 {
@@ -54,15 +55,10 @@ namespace UrlsAndRoutes
                 routes.MapRoute(
                     name: "MyRoute",
                     template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index"},
+                    defaults: new { controller = "Home", action = "Index" },
                     constraints: new
                     {
-                        id = new CompositeRouteConstraint(
-                            new IRouteConstraint[] {
-                                new AlphaRouteConstraint(),
-                                new MinLengthRouteConstraint(6)
-                            }
-                        )
+                        id = new WeekDayConstraint()
                     }
                 );
             });

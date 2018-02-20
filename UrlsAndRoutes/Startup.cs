@@ -29,11 +29,11 @@ namespace UrlsAndRoutes
             app.UseMvc(routes =>
             {
 
-                routes.MapRoute(
-                    name: "New Route",
-                    template: "App/Do{action}",
-                    defaults: new { controller = "Home"}
-                );
+                //routes.MapRoute(
+                //    name: "New Route",
+                //    template: "App/Do{action}",
+                //    defaults: new { controller = "Home"}
+                //);
 
                 routes.MapRoute(
                     name: "default",

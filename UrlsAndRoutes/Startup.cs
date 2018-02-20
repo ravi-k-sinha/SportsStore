@@ -16,6 +16,8 @@ namespace UrlsAndRoutes
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RouteOptions>(options => 
+                options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint)));
             services.AddMvc();
         }
 
@@ -54,12 +56,7 @@ namespace UrlsAndRoutes
 
                 routes.MapRoute(
                     name: "MyRoute",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" },
-                    constraints: new
-                    {
-                        id = new WeekDayConstraint()
-                    }
+                    template: "{controller=Home}/{action=Index}/{id:weekday?}"
                 );
             });
         }

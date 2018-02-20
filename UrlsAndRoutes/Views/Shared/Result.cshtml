@@ -24,5 +24,6 @@
     </table>
     <a asp-controller="Home" asp-action="CustomVariable">This is an outgoing URL</a>
     <a asp-route="out">This is an outgoing URL (Targeting specific route by name)</a>
+    <p>URL: @Url.Action("CustomVariable", "Home", new { id = 100})</p>
 </body>
 </html>

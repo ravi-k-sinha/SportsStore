@@ -16,14 +16,13 @@
     <table class="table table-sm table-bordered table-striped">
         <tr><th>Controller:</th><td>@Model.Controller</td></tr>
         <tr><th>Action:</th><td>@Model.Action</td></tr>
-        @foreach(string key in Model.Data.Keys)
+        @foreach (string key in Model.Data.Keys)
         {
             <tr><th>@key :</th><td>@Model.Data[key]</td></tr>
 
         }
     </table>
-    <a asp-controller="Home" asp-action="Index" asp-route-id="Hello"
-       asp-protocol="https" asp-host="myserver.mydomain.com"
-       asp-fragment="myFragment">This is an outgoing URL</a>
+    <a asp-controller="Home" asp-action="CustomVariable">This is an outgoing URL</a>
+    <a asp-route="out">This is an outgoing URL (Targeting specific route by name)</a>
 </body>
 </html>

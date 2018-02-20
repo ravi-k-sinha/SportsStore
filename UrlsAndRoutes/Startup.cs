@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -52,7 +53,17 @@ namespace UrlsAndRoutes
 
                 routes.MapRoute(
                     name: "MyRoute",
-                    template: "{controller=Home}/{action=Index}/{id:alpha:minLength(6)?}"
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index"},
+                    constraints: new
+                    {
+                        id = new CompositeRouteConstraint(
+                            new IRouteConstraint[] {
+                                new AlphaRouteConstraint(),
+                                new MinLengthRouteConstraint(6)
+                            }
+                        )
+                    }
                 );
             });
         }

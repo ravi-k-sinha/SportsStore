@@ -7,7 +7,7 @@ namespace UrlsAndRoutes.Controllers
     {
         public ViewResult Index() => View("Result", new Result
         {
-            Controller = nameof(HomeController),
+            Controller = nameof(CustomerController),
             Action = nameof(Index)
         });
 

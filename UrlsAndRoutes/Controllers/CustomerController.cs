@@ -3,9 +3,9 @@ using UrlsAndRoutes.Models;
 
 namespace UrlsAndRoutes.Controllers
 {
+    [Route("app/[controller]/actions/[action]/{id?}")]
     public class CustomerController : Controller
     {
-        [Route("[controller]/MyAction")]
         public ViewResult Index() => View("Result", new Result
         {
             Controller = nameof(CustomerController),

@@ -40,6 +40,13 @@ namespace UrlsAndRoutes
                 //    defaults: new { controller = "Home"}
                 //);
 
+                routes.Routes.Add(
+                    new LegacyRoute(
+                        "/articles/Windows_3.1_Overview.html", 
+                        "/old/.NET_1.0_Class_Library"
+                    )
+                );
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}"

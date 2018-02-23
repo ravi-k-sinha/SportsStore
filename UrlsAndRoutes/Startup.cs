@@ -42,6 +42,7 @@ namespace UrlsAndRoutes
 
                 routes.Routes.Add(
                     new LegacyRoute(
+                        app.ApplicationServices,
                         "/articles/Windows_3.1_Overview.html", 
                         "/old/.NET_1.0_Class_Library"
                     )

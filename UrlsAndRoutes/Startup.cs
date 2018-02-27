@@ -40,6 +40,11 @@ namespace UrlsAndRoutes
                 //    defaults: new { controller = "Home"}
                 //);
 
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}"
+                );
+
                 routes.Routes.Add(
                     new LegacyRoute(
                         app.ApplicationServices,

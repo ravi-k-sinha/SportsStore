@@ -6,11 +6,8 @@ namespace ControllersAndActions.Controllers
     {
         public ViewResult Index() => View("SimpleForm");
 
-        public ViewResult ReceiveForm()
+        public ViewResult ReceiveForm(string name, string city)
         {
-            var name = Request.Form["name"];
-            var city = Request.Form["city"];
-
             return View("Result", $"{name} lives in {city}");
         }
     }

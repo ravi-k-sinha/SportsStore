@@ -1,4 +1,6 @@
-﻿@{
+﻿@model DateTime
+
+@{
     Layout = null;
 }
 
@@ -10,6 +12,6 @@
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
 </head>
 <body class="m-1 p-1">
-   Model: @(((DateTime)Model).DayOfWeek)
+   Model: @Model.DayOfWeek
 </body>
 </html>

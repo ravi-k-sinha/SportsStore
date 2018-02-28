@@ -16,5 +16,7 @@ namespace ControllersAndActions.Controllers
 
         public RedirectToActionResult Redirect() => 
             RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
+
+        public JsonResult JsonData() => Json(new[] { "Alice", "Bob", "Joe"});
     }
 }

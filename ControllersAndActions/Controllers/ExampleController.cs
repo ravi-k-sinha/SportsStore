@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ControllersAndActions.Controllers
 {
@@ -18,6 +15,6 @@ namespace ControllersAndActions.Controllers
         public ViewResult Result() => View((object)"Hello World");
 
         public RedirectToActionResult Redirect() => 
-            RedirectToAction(nameof(Index));
+            RedirectToAction(nameof(HomeController.Index), nameof(HomeController).Replace("Controller", ""));
     }
 }

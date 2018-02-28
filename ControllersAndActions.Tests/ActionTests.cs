@@ -32,5 +32,18 @@ namespace ControllersAndActions.Tests
             // Assert
             Assert.Null(result.ViewName);
         }
+
+        [Fact]
+        public void ModelObjectType()
+        {
+            // Arrange
+            ExampleController controller = new ExampleController();
+
+            // Act
+            ViewResult result = controller.Index();
+
+            // Assert
+            Assert.IsType<DateTime>(result.ViewData.Model);
+        }
     }
 }

@@ -24,5 +24,8 @@ namespace ControllersAndActions.Controllers
 
         public ObjectResult ObjectData() =>
             Ok(new string[] { "Alice", "Bob", "Joe"});
+
+        public VirtualFileResult CssFile()
+            => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
     }
 }

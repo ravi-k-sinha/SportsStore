@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlsAndRoutes", "UrlsAndRou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersAndActions", "ControllersAndActions\ControllersAndActions.csproj", "{6D0730C6-2DB4-445C-8C0A-AA2DF74C957C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllersAndActions.Tests", "ControllersAndActions.Tests\ControllersAndActions.Tests.csproj", "{0401653D-52FC-471A-8AFD-1AB32081A77E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{6D0730C6-2DB4-445C-8C0A-AA2DF74C957C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D0730C6-2DB4-445C-8C0A-AA2DF74C957C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D0730C6-2DB4-445C-8C0A-AA2DF74C957C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0401653D-52FC-471A-8AFD-1AB32081A77E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0401653D-52FC-471A-8AFD-1AB32081A77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0401653D-52FC-471A-8AFD-1AB32081A77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0401653D-52FC-471A-8AFD-1AB32081A77E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,6 +30,6 @@ namespace ControllersAndActions.Controllers
             => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
 
         public StatusCodeResult Unknown()
-            => StatusCode(StatusCodes.Status404NotFound);
+            => NotFound();
     }
 }

@@ -21,5 +21,8 @@ namespace ControllersAndActions.Controllers
 
         public ContentResult ContentData() =>
             Content("[\"Alice\",\"Bob\",\"Joe\"]", "application/json");
+
+        public ObjectResult ObjectData() =>
+            Ok(new string[] { "Alice", "Bob", "Joe"});
     }
 }

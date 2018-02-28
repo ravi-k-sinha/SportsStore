@@ -66,6 +66,19 @@ namespace ControllersAndActions.Tests
             Assert.Equal("Index", result.ActionName);
             Assert.Equal("Home", result.ControllerName);
         }
+
+        [Fact]
+        public void JsonActionMethod()
+        {
+            // Arrange 
+            ExampleController controller = new ExampleController();
+
+            // Act
+            JsonResult result = controller.JsonData();
+
+            // Assert
+            Assert.Equal(new[] { "Alice", "Bob", "Joe"}, result.Value);
+        }
     }
 
     class X : ITempDataDictionary

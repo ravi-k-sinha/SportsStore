@@ -43,7 +43,9 @@ namespace ControllersAndActions.Tests
             ViewResult result = controller.Index();
 
             // Assert
-            Assert.IsType<DateTime>(result.ViewData.Model);
+            Assert.IsType<string>(result.ViewData["Message"]);
+            Assert.Equal("Hello", result.ViewData["Message"]);
+            Assert.IsType<DateTime>(result.ViewData["Date"]);
         }
     }
 }

@@ -19,5 +19,18 @@ namespace ControllersAndActions.Tests
             // Assert
             Assert.Equal("Result", result.ViewName);
         }
+
+        [Fact]
+        public void DefaultViewSelected()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.DefaultView();
+
+            // Assert
+            Assert.Null(result.ViewName);
+        }
     }
 }

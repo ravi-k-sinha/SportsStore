@@ -47,5 +47,19 @@ namespace ControllersAndActions.Tests
             Assert.Equal("Hello", result.ViewData["Message"]);
             Assert.IsType<DateTime>(result.ViewData["Date"]);
         }
+
+        [Fact]
+        public void Redirection()
+        {
+            // Arrange
+            ExampleController controller = new ExampleController();
+
+            // Act
+            RedirectResult result = controller.Redirect();
+
+            // Assert
+            Assert.Equal("/Example/Index", result.Url);            
+            Assert.True(result.Permanent);
+        }
     }
 }

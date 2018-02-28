@@ -1,6 +1,9 @@
 using ControllersAndActions.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Xunit;
 
 namespace ControllersAndActions.Tests
@@ -12,12 +15,13 @@ namespace ControllersAndActions.Tests
         {
             // Arrange
             HomeController controller = new HomeController();
+            controller.TempData = new X();
 
             // Act
-            ViewResult result = controller.ReceiveForm("Adam", "London");
+            RedirectToActionResult result = controller.ReceiveForm("Adam", "London");
 
             // Assert
-            Assert.Equal("Result", result.ViewName);
+            Assert.Equal("Data", result.ActionName);
         }
 
         [Fact]
@@ -61,6 +65,102 @@ namespace ControllersAndActions.Tests
             Assert.False(result.Permanent);
             Assert.Equal("Index", result.ActionName);
             Assert.Equal("Home", result.ControllerName);
+        }
+    }
+
+    class X : ITempDataDictionary
+    {
+        public object this[string key] {
+            get => "no-op-value";
+            set => key = "no-op-value";
+        }
+
+        public ICollection<string> Keys => throw new NotImplementedException();
+
+        public ICollection<object> Values => throw new NotImplementedException();
+
+        public int Count => throw new NotImplementedException();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        public void Add(string key, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(KeyValuePair<string, object> item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(KeyValuePair<string, object> item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ContainsKey(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Keep()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Keep(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Load()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Peek(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(string key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(KeyValuePair<string, object> item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TryGetValue(string key, out object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

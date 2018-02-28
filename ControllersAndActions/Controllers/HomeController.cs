@@ -10,5 +10,8 @@ namespace ControllersAndActions.Controllers
 
         public ViewResult ReceiveForm(string name, string city) =>
             View("Result", $"{name} lives is {city}");
+
+        public ViewResult DefaultView() =>
+            View();
     }
 }

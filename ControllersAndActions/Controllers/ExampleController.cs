@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace ControllersAndActions.Controllers
@@ -27,5 +28,8 @@ namespace ControllersAndActions.Controllers
 
         public VirtualFileResult CssFile()
             => File("/lib/bootstrap/dist/css/bootstrap.css", "text/css");
+
+        public StatusCodeResult Unknown()
+            => StatusCode(StatusCodes.Status404NotFound);
     }
 }

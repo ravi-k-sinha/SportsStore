@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DependencyInjection.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace DependencyInjection.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index() => View();
+        public ViewResult Index() => View(new MemoryRepository().Products);
     }
 }
